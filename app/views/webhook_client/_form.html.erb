@@ -1,0 +1,17 @@
+<%= form_with model: client, url: { action: action } do |f| %>
+    <p>
+        <label for="target_url">Target URL</label>
+        <%= f.text_field :target_url %>
+    </p>
+    <p>
+        <label for="events">Events (comma seperated list)</label>
+        <%= f.text_field :events, value: events_as_string(client.events) %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
+
+<p>
+<%= link_to 'Back to overview', { action: 'index' } %>
+</p>

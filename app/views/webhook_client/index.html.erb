@@ -1,0 +1,21 @@
+<h2>Configured Webhooks</h2>
+
+<%= link_to 'Create new webhook', { action: 'new' } %>
+
+<table>
+<tr>
+    <th>#</th>
+    <th>URL</th>
+    <th>Enabled events</th>
+    <th colspan="2">Actions</th>
+</tr>
+<% @clients.each do |client| %>
+    <tr>
+        <td><%= client.id %></td>
+        <td><%= client.target_url %></td>
+        <td><%= events_as_string(client.events) %></td>
+        <td><%= link_to 'Edit', { action: 'edit', id: client.id } %>
+        <td><%= link_to 'Delete', { action: 'destroy', id: client.id }, data: { confirm: 'Are you sure?' }, method: :delete %>
+    </tr>
+<% end %>
+</table>
